@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Members from './Members'
+import Games from './Games'
+import User from './User'
 
 function App() {
+  // const width = window.innerWidth;
+  // const height = window.innerHeight;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='title'></div>
+      <div className='screen'>
+        <div className='left-item'>
+          {/* this will contain the flex box for the user in the connection */}
+          <Members/>
+        </div>
+        <div className='middle-item'>
+          <Games/>
+        </div>
+        <div className='right-item'>
+          <User/>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

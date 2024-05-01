@@ -1,0 +1,13 @@
+<input
+        type="text"
+        value={newMember}
+        onChange={(e) => setNewMember(e.target.value)}
+      />
+      <button onClick={addMember}>Add Member</button>
+
+  const addMember = () => {
+    const socket = socketIOClient(ENDPOINT);
+    const updatedMembers = [...data, newMember];
+    socket.emit('update_members', updatedMembers);
+    setNewMember("");
+  };
