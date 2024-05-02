@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 10%;
+    flex-grow: 1;
 }
 
 .game-card {
@@ -11,11 +12,12 @@
     border: 2px solid black;
     flex-direction: column;
     align-items: center;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 5%;
+    min-height: 10%;
     margin-bottom: 5%;
     margin-top: 10px;
     margin-left: 2%;
+    margin-right: 2%;
 
 }
 

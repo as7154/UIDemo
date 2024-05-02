@@ -30,6 +30,7 @@ const App = () => {
       .then(res => res.json())
       .then(data => {
         setData(data.members);
+        console.log(data.members)
       })
       .catch(error => {
         console.error('Error fetching data:', error);

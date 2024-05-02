@@ -7,7 +7,7 @@ const games = ["Coin Flip", "Dice Roll"]
 
 const Games = () => {
   const [data, setData] = useState([]);
-  const [bet, setBet] = useState();
+  const [bet, setBet] = useState("");
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -42,32 +42,30 @@ const Games = () => {
   const placeBet = () => {
     const socket = socketIOClient(ENDPOINT);
     socket.emit('new_bet', bet);
-    setBet()
+    // setBet()
   }
 
   return (
-    <div>
-      {/* <div>Games</div>
-      <hr></hr> */}
-      <div className='game-layout'>
-        {data.map(game => (
-            <div key={game.id} className='game-card'>
-                {/* <p>ID: {game.id}</p> */}
-                <h1 className='game-title'>{games[game.gametype]}</h1>
-                <p className='game-pot'>{game.totalbet}</p>
-                {/* <p>Minimum Bet: {game.minbet}</p> */}
-                <input
-                  className="game-bet-input"
-                  type="text"
-                  placeholder={"MIN BET: " + game.minbet}
-                  value={bet}
-                  onChange={(e) => setBet(e.target.value)}
-                />
-                <button className="game-bet-button" onClick={placeBet}>BET</button>
-            </div>
-    ))}
-      </div>
+    
+    <div className='game-layout'>
+      {data.map(game => (
+          <div key={game.id} className='game-card'>
+              {/* <p>ID: {game.id}</p> */}
+              <h1 className='game-title'>{games[game.gametype]}</h1>
+              <p className='game-pot'>{game.totalbet}</p>
+              {/* <p>Minimum Bet: {game.minbet}</p> */}
+              <input
+                className="game-bet-input"
+                type="text"
+                placeholder={"MIN BET: " + game.minbet}
+                value={bet}
+                onChange={(e) => setBet(e.target.value)}
+              />
+              <button className="game-bet-button" onClick={placeBet}>BET</button>
+          </div>
+      ))}
     </div>
+    
   );
 }
 

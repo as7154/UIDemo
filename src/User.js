@@ -32,14 +32,14 @@ const User = () => {
   };
 
   return (
-    <div>
-      <div>User</div>
-      <hr></hr>
+    <div className="user-layout">
+      <h1 className='mainuser-title'>User</h1>
+      <hr className='mainuser-hr'></hr>
       <div>
         {data.map((user, index) => (
-            <div key={index}>
-                <p>{user.name}</p>
-                <p>{user.balance}</p>
+            <div className="mainuser-info" key={index}>
+                <div> NAME: {user.name}</div>
+                <div> BALANCE: {user.balance}</div>
             </div>
     ))}
       </div>

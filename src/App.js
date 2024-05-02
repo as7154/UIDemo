@@ -11,7 +11,9 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='title'></div>
+      <div className='title'>
+        BLOCK-CHAIN-BOOKIE
+      </div>
       <div className='screen'>
         <div className='left-item'>
           {/* this will contain the flex box for the user in the connection */}
