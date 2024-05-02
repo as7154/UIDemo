@@ -1,4 +1,4 @@
-<input
+'<input
         type="text"
         value={newMember}
         onChange={(e) => setNewMember(e.target.value)}
@@ -10,4 +10,4 @@
     const updatedMembers = [...data, newMember];
     socket.emit('update_members', updatedMembers);
     setNewMember("");
-  };
+  };'

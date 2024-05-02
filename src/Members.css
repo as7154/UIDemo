@@ -1,35 +1,36 @@
 .users {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    border: 2px solid darkorchid;
-    border-radius: 10%;
-    margin-top: 2%;
+    background-color: aliceblue;
+    border: 2px solid black;
+    /* border-radius: 10%; */
+    margin-top: 10px;
     margin-left: 2%;
     margin-right: 2%;
     flex-grow: 1;
 }
 
-hr {
+.user-hr {
     margin-top: 0%;
     margin-bottom: 0%;
     width: 90%;
     border: 0;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid black;
 }
 
 .user-title {
     display: flex;
     justify-content: center;
     margin-top: 2%;
+    margin-bottom: 0;
     font-size: 2.25vw;
-    color: white;
+    color: black;
 }
 
 .members {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 2vw;
-    color: white;
+    font-size: 1.75vw;
+    color: black;
 }

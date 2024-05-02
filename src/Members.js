@@ -37,8 +37,8 @@ const App = () => {
 
   return (
     <div className="users">
-      <div className='user-title'>USERS ONLINE</div>
-      <hr></hr>
+      <h1 className='user-title'>ONLINE</h1>
+      <hr className ='user-hr'></hr>
       <div className="members">
         {data.map((member, index) => (
           <div key={index}>{member}</div>
