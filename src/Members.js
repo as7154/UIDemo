@@ -17,6 +17,7 @@ const App = () => {
     // });
     socket.on("members_updated", (members) => {
       setData(members);
+      console.log(members);
     });
 
     fetchMembers();
@@ -40,9 +41,16 @@ const App = () => {
       <h1 className='user-title'>ONLINE</h1>
       <hr className ='user-hr'></hr>
       <div className="members">
-        {data.map((member, index) => (
-          <div key={index}>{member}</div>
-        ))}
+      {data.map((member, index) => {
+          const ip = Object.keys(member)[0]; // Getting the IP address
+          if (!ip) return null;
+          const port = member[ip]; // Getting the port using the IP
+          return (
+            <div key={index}>
+              IP: {ip}, Port: {port}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
