@@ -1,0 +1,25 @@
+
+.modal-layout {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    background-color: aliceblue;
+    padding: 50px;
+    z-index: 1000;
+    color: black;
+    border: 2px solid black;
+}
+
+.overlay-layout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.45;
+    z-index: 999;
+}

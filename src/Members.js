@@ -42,16 +42,15 @@ const App = () => {
       <h1 className='user-title'>ONLINE</h1>
       <hr className ='user-hr'></hr>
       <div className="members">
-      {data.map((member, index) => {
-          const ip = Object.keys(member)[0]; // Getting the IP address
-          if (!ip) return null;
-          const port = member[ip]; // Getting the port using the IP
-          return (
-            <div key={index}>
-              IP: {ip}, Port: {port}
-            </div>
-          );
-        })}
+      {data.map((members, index) => (
+        <div key={index}>
+          {Object.entries(members).map(([ip, port]) => (
+        <div key={ip}>
+          IP: {ip}, Port: {port}
+        </div>
+      ))}
+  </div>
+))}
       </div>
     </div>
   );
