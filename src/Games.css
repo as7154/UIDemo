@@ -38,6 +38,23 @@
     border: 3px solid whitesmoke;
 }
 
+.game-pick-selection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-pick-button {
+    width: 40%;
+    border: 2px solid black;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
 .game-bet-button {
     width: 80%;
     border: 2px solid black;
@@ -56,6 +73,23 @@
 
 .game-bet-button:active {
     transform: translateY(4px);
+}
+
+.game-bet-button[disabled]{
+    cursor: not-allowed;
+    background-color: aliceblue;
+    transition-duration: 0;
+}
+
+.game-bet-button[disabled]:hover {
+    background-color: aliceblue;
+    color: red;
+    border-color: red;
+    /* cursor: not-allowed; */
+}
+
+.game-bet-button[disabled]:active {
+    transform: translateY(0px);
 }
 
 .game-title {

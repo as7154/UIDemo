@@ -8,6 +8,7 @@ const games = ["Coin Flip", "Dice Roll"]
 const Games = () => {
   const [data, setData] = useState([]);
   const [bet, setBet] = useState("");
+  const [pick, setPick] = useState(false);
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -39,11 +40,26 @@ const Games = () => {
       });
   };
 
-  const placeBet = () => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.emit('new_bet', bet);
-    // setBet()
+  // const updatePickSelection = (userPick) => {
+  //   setPick(userPick);
+  // }
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (!isNaN(value) && value !== ""){
+      setBet(value);
+    }
+    else {
+      setBet("");
+    }
   }
+
+  const placeBet = (id) => {
+    const socket = socketIOClient(ENDPOINT);
+    socket.emit('new_bet', [id, bet, pick]);
+  }
+
+  
 
   return (
     
@@ -54,14 +70,36 @@ const Games = () => {
               <h1 className='game-title'>{games[game.gametype]}</h1>
               <p className='game-pot'>{game.totalbet}</p>
               {/* <p>Minimum Bet: {game.minbet}</p> */}
+              <div className='game-pick-selection'>
+                <button
+                  onClick={() => setPick('HEAD')}
+                  style = {{
+                    backgroundColor: pick === 'HEAD' ? 'black' : 'aliceblue',
+                    color: pick === 'HEAD' ? 'aliceblue' : 'black'
+                  }} 
+                  className='game-pick-button'
+                >
+                  HEAD
+                </button>
+                <button 
+                  onClick={() => setPick('TAIL')}
+                  style = {{
+                    backgroundColor: pick === 'TAIL' ? 'black' : 'aliceblue',
+                    color: pick === 'TAIL' ? 'aliceblue' : 'black'
+                  }} 
+                  className='game-pick-button'
+                >
+                  TAIL
+                </button>
+              </div>
               <input
                 className="game-bet-input"
                 type="text"
                 placeholder={"MIN BET: " + game.minbet}
                 value={bet}
-                onChange={(e) => setBet(e.target.value)}
+                onChange={handleInputChange}
               />
-              <button className="game-bet-button" onClick={placeBet}>BET</button>
+              <button className="game-bet-button" onClick={placeBet(game.id)} disabled={!pick || isNaN(bet)}>BET</button>
           </div>
       ))}
     </div>

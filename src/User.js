@@ -38,7 +38,6 @@ const User = () => {
       <div>
         {data.map((user, index) => (
             <div className="mainuser-info" key={index}>
-                <div> NAME: {user.name}</div>
                 <div> BALANCE: {user.balance}</div>
             </div>
     ))}
