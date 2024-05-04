@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 import './Games.css'
 import ResultModal from './ResultModal';
 
-const ENDPOINT = "http://127.0.0.1:50000"; 
+const ENDPOINT = "http://35.223.224.63:50000"; 
 const games = ["Coin Flip", "Dice Roll"]
 
 const Games = () => {
