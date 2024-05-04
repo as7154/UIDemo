@@ -11,7 +11,143 @@
     z-index: 1000;
     color: black;
     border: 2px solid black;
+
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+
 }
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-hr {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 90%;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+
+.modal-header-title {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 50px;
+}
+
+.modal-header-exit {
+    position: absolute;
+    display: flex;
+    width: 500px;
+    height: 100px;
+    flex-direction: row-reverse;
+}
+
+.modal-header-exit-button {
+    background-color: aliceblue;
+    border: 2px solid black;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-userinfo {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.modal-userinfo-data {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 30px;
+}
+
+.modal-coin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in;
+    transform-style: preserve-3d;
+    margin-top: -10%;
+}
+
+.modal-coin-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    color: aliceblue;
+
+    position: absolute;
+    backface-visibility: hidden;
+    
+    /* z-index: 100; */
+
+}
+
+.modal-coin-tail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    color: aliceblue;
+
+    position: absolute;
+    backface-visibility: hidden;
+
+    transform: rotateY(-180deg);
+
+}
+
+.heads {
+    animation: flipHeads 3s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.tails {
+    animation: flipTails 3s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes flipHeads {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(720deg);
+    }
+}
+
+@keyframes flipTails {
+    from {
+        transform: rotateY(0);
+    }
+
+    to {
+        transform: rotateY(900deg)
+    }
+}
+
 
 .overlay-layout {
     position: fixed;
@@ -22,4 +158,18 @@
     background-color: black;
     opacity: 0.45;
     z-index: 999;
+}
+
+.result-display {
+    z-index: 1000;
+    width: 100%;
+    height: 150px;
+    background-color: aliceblue;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    border: 2px solid black;
 }

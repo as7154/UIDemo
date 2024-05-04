@@ -110,7 +110,7 @@ const Games = () => {
           </div>
       ))}
     </div>
-    <ResultModal open={showResults} onClose={() => setShowResults(false)}/>
+    { showResults && (<ResultModal open={showResults} onClose={() => setShowResults(false)} bet={5} pick={"TAIL"} result={"heads"} winAmount={10}/>)}
     </>
   );
 }
